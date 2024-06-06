@@ -1,0 +1,19 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Repository List</title>
+</head>
+<body>
+    <h1>Repository List</h1>
+    <ul>
+        {% for repo in repositories %}
+        <li>
+            <h3>{{ repo.name }}</h3>
+            <p>Description: {{ repo.description }}</p>
+            <p>Private: {{ repo.is_private }}</p>
+            <p>Owner: {{ repo.owner }}</p>
+        </li>
+        {% endfor %}
+    </ul>
+</body>
+</html>
