@@ -7,11 +7,14 @@ from django.contrib import messages
 #@login_required
 def github_connect(request):
     try:# Replace these with your actual GitHub App credentials
-        client_id = 'Iv23liIIkJLD7Qp5T1It'
-        client_secret = '77307fce16c3d531174e471de4d3dfbf70c18546'
+        #1. either authemticate with the access token of the user.
+        token = 'your_access_token'
+        #2. or authenticate the user via the client and secret id.
+        client_id = 'your_client_id'
+        client_secret = 'client_secret_id'
 
         # Authenticate the user using the GitHub App
-        github = Github(client_id, client_secret)
+        github = Github(access_token,  retry=9)
         user = github.get_user()
 
         # Fetch all repositories (public and private)
